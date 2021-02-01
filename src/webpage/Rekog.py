@@ -1,5 +1,4 @@
 import boto3
-from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 
 def Rekog(image):
