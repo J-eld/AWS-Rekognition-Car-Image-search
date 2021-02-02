@@ -1,5 +1,6 @@
 body {
-    background: url("https://images.unsplash.com/photo-1478031706604-bb4b7b0b4e9e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80") no-repeat center center fixed; 
+  background: url('https://images.unsplash.com/photo-1478031706604-bb4b7b0b4e9e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7,10 +8,66 @@ body {
 }
 
 header {
-    background: white;
+  background: white;
 }
 
 .white-box {
+  opacity: 70%;
   background-color: white;
   color: black;
+  width: 40%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: gray 2px solid;
+  margin: 18rem auto;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.label-tag {
+  padding: 3rem; 
+}
+
+.choose-file {
+  font-size: 2rem;
+  padding-left: 11rem;
+}
+
+.submit, .lucky {
+  padding: 2rem;
+  margin-top: 3rem;
+  background-color: rgb(44, 38, 38);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.lucky {
+  margin-left: 3rem;
+}
+
+.submit:hover {
+  background-color: rgb(78, 72, 72);
+}
+
+.lucky:hover {
+  background-color: rgb(78, 72, 72);
+}
+
+label {
+  font-size: 2rem;
+}
+

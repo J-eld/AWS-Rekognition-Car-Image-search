@@ -28,31 +28,29 @@
     </nav>
   </header>
 
-<div class="white-box">
-    <head>
-        <meta charset="utf-8">
-        <title>Minimal Django File Upload Example</title>
-    </head>
+  <div class="white-box">
 
-    <body>
+      <!-- Upload form. Note enctype attribute! -->
 
-        <!-- Upload form. Note enctype attribute! -->
-        <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ message }}
-            <p>{{ form.non_field_errors }}</p>
+      <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ message }}
+        <p>{{ form.non_field_errors }}</p>
 
-            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+        <p class="label-tag">{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
 
-            <p>
-                {{ form.docfile.errors }}
-                {{ form.docfile }}
-            </p>
+        <p class="choose-file">
+          {{ form.docfile }}
+        </p>
 
-            <p><input type="submit" value="Search Turners Listings"/></p>
-        </form>
-    </body>
-</div>
+        <div class="buttons">
+          <p><input class="submit" type="submit" value="Search Turners Listings" /></p>
+          <p><input class="lucky" type="submit" value="I'm Feeling Lucky" /></p>
+        </div>
+      </form>
+    </div>
+ 
+  
 
   <script>
     window.watsonAssistantChatOptions = {
