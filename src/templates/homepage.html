@@ -20,13 +20,32 @@
 
 
 <body>
-  <header>
+  <header class="d-flex fade-in">
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="http://localhost:8000/">
         <img src={% static "/Turners-Logo.gif" %} width="190" height="30" alt="turners-logo">
       </a>
+      <div class="navbar-links text-right">
+        <a href="https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1">Find A Car <img src="https://img.icons8.com/cotton/64/000000/detective.png" width="20"/></a>
+        <a href="https://www.turners.co.nz/Cars/sell-your-car/">Sell Your Car <img src="https://img.icons8.com/ios/24/000000/down-squared--v1.png"/></a>
+        <a href="http://localhost:8000/upload">Upload & Match <img src="https://img.icons8.com/dusk/64/000000/camera-identification.png" width="25"/></a>
+      </div>  
     </nav>
+    
   </header>
+
+  
+  <h1 class="text-center fade-in">Welcome to Turners</h1>
+
+  <div class="cta-section text-center fade-in">
+    <h3>Finding the perfect car just got easier</h3>
+    <p>Simply upload a picture of the type of car you're looking for and view our stock to see if we have a similar match.</p>
+<<<<<<< HEAD
+    <button class="cta" onclick=location.href='{% url 'my-view' %}'>Get started with <br><strong>Upload & Match</strong></button>
+=======
+    <button class="cta">Get started with <br><strong>Upload & Match</strong></button>
+>>>>>>> 268432e49f91c28076f5384bcb7c65cb9fc68004
+  </div>  
 
 
   <script>
