@@ -27,7 +27,7 @@
       <div class="navbar-links text-right">
         <a href="https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1">Find A Car <img src="https://img.icons8.com/cotton/64/000000/detective.png" width="20"/></a>
         <a href="https://www.turners.co.nz/Cars/sell-your-car/">Sell Your Car <img src="https://img.icons8.com/ios/24/000000/down-squared--v1.png"/></a>
-        <a href="http://localhost:8000/upload">Upload & Match <img src="https://img.icons8.com/dusk/64/000000/camera-identification.png" width="25"/></a>
+        <a href="{% url "analyse-view" %}">Upload & Match <img src="https://img.icons8.com/dusk/64/000000/camera-identification.png" width="25"/></a>
       </div>  
     </nav>
     
@@ -39,19 +39,27 @@
 
       <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data" target="_blank">
         {% csrf_token %}
-        {{ message }}
+        
         <p>{{ form.non_field_errors }}</p>
 
-        <p class="label-tag">{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+        <p class="photo-box"><img class="fit" src="{{ image }}"></p>
 
-        <p class="choose-file">
-          {{ form.docfile }}
-        </p>
+        {% if TypeOfCar == 'Suv' %}
+          <p>Your car is an {{ TypeOfCar }}</p>
+        {% elif TypeOfCar == False %}
+          <p>No Car Found</p>
+        {% else %}
+          <p>Your car is a {{ TypeOfCar }}</p>
+        {% endif %}
+
 
         <div class="buttons">
-          <p><input class="submit" type="submit" value="Search Turners Listings" /></p>
+          <p><a class="lucky" href="{% url "turners-view" %}">Search Turners Listings</a></p>
           <p><a class="lucky" href="#" onclick="randomSite();">I'm Feeling Lucky</a></p>
         </div>
+
+        <a class="lucky" href="{% url "analyse-view" %}">Back</a>
+        
         
         
       </form>

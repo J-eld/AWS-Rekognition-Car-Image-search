@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turners Online Auctions FAQ</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+  <header class="d-flex">
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="http://localhost:8000/">
+        <img src={% static "/Turners-Logo.gif" %} width="190" height="30" alt="turners-logo">
+      </a>
+      <div class="navbar-links text-right">
+        <a href="https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1">Find A Car <img src="https://img.icons8.com/cotton/64/000000/detective.png" width="20"/></a>
+        <a href="https://www.turners.co.nz/Cars/sell-your-car/">Sell Your Car <img src="https://img.icons8.com/ios/24/000000/down-squared--v1.png"/></a>
+        <a href="http://localhost:8000/upload">Upload & Match <img src="https://img.icons8.com/dusk/64/000000/camera-identification.png" width="25"/></a>
+      </div>  
+    </nav>
+    
+  </header>
+
+  <div class="analyse-section">
+
+      <!-- Upload form. Note enctype attribute! -->
+
+      <form action="{% url "analyse-view" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ message }}
+        <p>{{ form.non_field_errors }}</p>
+
+        <p class="label-tag">{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+        <p class="choose-file1">
+          {{ form.docfile }}
+        </p>
+
+        <div class="buttons">
+          <p><input class="submit" type="submit" value="Analyse your photo" /></p>
+        </div>
+        
+        
+      </form>
+      
+      
+    </div>
+  
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "14ca1696-f227-4a79-83d8-6d49ba8b230b", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "45975123-b398-48b3-a64f-c80b93d1c3eb", // The ID of your service instance.
+      onLoad: function (instance) { instance.render(); }
+    };
+    setTimeout(function () {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+
+</body>
+
+</html>

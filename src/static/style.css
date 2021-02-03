@@ -24,7 +24,7 @@ header {
   padding-right: 3.5rem;
 }
 
-.upload-section {
+.analyse-section {
   background-color: rgba(255, 255, 255, 0.9);
   color: black;
   width: 40%;
@@ -35,6 +35,33 @@ header {
   border: gray 2px solid;
   margin: 18rem auto;
   font-family: 'Lato', sans-serif;
+}
+
+.upload-section {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  width: 40%;
+  height: 50rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: gray 2px solid;
+  margin: 18rem auto;
+  font-family: 'Lato', sans-serif;
+}
+
+.photo-box {
+  background-color: white;
+  border: gray 5px solid;
+  justify-content: center;
+  display: flex;
+  width: 384px;
+  height: 216px;  
+  object-fit: contain;
+}
+.fit {
+  width: auto;
+  height: auto;
 }
 
 .buttons {
@@ -55,7 +82,12 @@ form {
   padding: 3rem; 
 }
 
-.choose-file {
+.choose-file1 {
+  font-size: 2rem;
+  padding-left: 15rem;
+}
+
+.choose-file2 {
   font-size: 2rem;
   padding-left: 11rem;
 }
@@ -71,6 +103,10 @@ form {
   margin-left: 2rem;
   padding: 2.4rem;
   
+}
+
+input[type=submit]:hover{
+  text-decoration:underline;
 }
 
 .submit:hover {

@@ -17,19 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from webpage.views import home_view, sedan_view, coupe_view, van_view, truck_view, suv_view, convertible_view
+from webpage.views import home_view, analyse_view, turners_view
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('admin/', admin.site.urls),
     path('upload', include('webpage.urls')),
-    path('sedan', sedan_view),
-    path('coupe', coupe_view),
-    path('truck', truck_view),
-    path('convertible', convertible_view),
-    path('van', van_view),
-    path('suv', suv_view),
+    path('analyse', analyse_view, name='analyse-view'),
+    path('turners', turners_view, name='turners-view'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

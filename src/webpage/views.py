@@ -10,7 +10,7 @@ def home_view(request, *args, **kwargs):
     return render(request, 'homepage.html', {})
 
 
-def my_view(request):
+def analyse_view(request):
     print(f"Great! You're using Python 3.6+. If you fail here, use the right version.")
     message = 'Upload Image to search for similar vehicles'
     # Handle file upload
@@ -19,8 +19,9 @@ def my_view(request):
         if form.is_valid():
             newdoc = Document(docfile=request.FILES['docfile'])
             newdoc.save()
-            TypeOfCar = Rekog(Document.objects.all()[0].docfile.name)
-            print(TypeOfCar)
+            analyse_view.image = Document.objects.all()[0].docfile.name
+            analyse_view.TypeOfCar = Rekog(analyse_view.image)
+            Document.objects.all().delete()
 
             # Redirect to the document list after POST
             return redirect('my-view')
@@ -28,55 +29,34 @@ def my_view(request):
     else:
         form = DocumentForm()  # An empty, unbound form
 
-    # Load documents for the list page
-    documents = Document.objects.all()
+    
+    # Render list page with the documents and the form
+    context = {'form': form, 'message': message}
+    return render(request, 'analyse.html', context)
 
-    for document in documents:
-        TypeOfCar = Rekog(document.docfile.name)
-        Document.objects.all().delete()
 
-        if TypeOfCar == 'Coupe':
-            return redirect(coupe_view)
 
-        if TypeOfCar == 'Sedan':
-            return redirect(sedan_view)
-
-        if TypeOfCar == 'Suv':
-            return redirect(suv_view)
-
-        if TypeOfCar == 'Truck':
-            return redirect(truck_view)
-
-        if TypeOfCar == 'Convertible':
-            return redirect(convertible_view)
-
-        if TypeOfCar == 'Van':
-            return redirect(van_view)
+def my_view(request):
 
     # Render list page with the documents and the form
-    context = {'documents': documents, 'form': form, 'message': message}
+    context = {'TypeOfCar':analyse_view.TypeOfCar, "image": analyse_view.image,}
     return render(request, 'base.html', context)
 
+def turners_view(request):
+    if analyse_view.TypeOfCar == 'Coupe':
+        return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=coupe')
 
-def sedan_view(request, *args, **kwargs):
-    return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=sedan')
+    elif analyse_view.TypeOfCar == 'Sedan':
+        return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=sedan')
 
+    elif analyse_view.TypeOfCar == 'Suv':
+        return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=suv')
 
-def coupe_view(request, *args, **kwargs):
-    return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=coupe')
+    elif analyse_view.TypeOfCar == 'Truck':
+        return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=utility')
 
+    elif analyse_view.TypeOfCar == 'Convertible':
+        return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=convertible')
 
-def truck_view(request, *args, **kwargs):
-    return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=utility')
-
-
-def convertible_view(request, *args, **kwargs):
-    return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=convertible')
-
-
-def suv_view(request, *args, **kwargs):
-    return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=suv')
-
-
-def van_view(request, *args, **kwargs):
-    return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=van')
+    elif analyse_view.TypeOfCar == 'Van':
+        return redirect('https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1&types=van')

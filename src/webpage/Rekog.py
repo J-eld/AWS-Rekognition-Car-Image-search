@@ -16,16 +16,12 @@ def Rekog(image):
             car_type_dict[label['Name']] = label['Confidence']
        
 
-        print(label['Name'] + ' ' + "%.1f" %label['Confidence'] + '%')
         
     if not car_type_dict:
         return False
     
-    print('')
-    print(car_type_dict)
     car_type = []
     for items in car_type_dict.keys():
         car_type.append(items)
-    print (car_type)
     
     return car_type[0]
