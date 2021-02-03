@@ -14,7 +14,12 @@ def Rekog(image):
     for label in rekresp['Labels']:
         if label['Name'] == 'Sedan' or label['Name'] == 'Suv' or label['Name'] == 'Coupe' or label['Name'] == 'Truck' or label['Name'] == 'Van' or label['Name'] == 'Convertible':
             car_type_dict[label['Name']] = label['Confidence']
+       
+
         print(label['Name'] + ' ' + "%.1f" %label['Confidence'] + '%')
+        
+    if not car_type_dict:
+        return False
     
     print('')
     print(car_type_dict)

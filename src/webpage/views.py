@@ -17,9 +17,10 @@ def my_view(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            Document.objects.all().delete()
             newdoc = Document(docfile=request.FILES['docfile'])
             newdoc.save()
+            TypeOfCar = Rekog(Document.objects.all()[0].docfile.name)
+            print(TypeOfCar)
 
             # Redirect to the document list after POST
             return redirect('my-view')

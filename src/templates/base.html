@@ -15,24 +15,29 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-
 </head>
 
 
 <body>
-  <header>
+  <header class="d-flex">
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="http://localhost:8000/">
         <img src={% static "/Turners-Logo.gif" %} width="190" height="30" alt="turners-logo">
       </a>
+      <div class="navbar-links text-right">
+        <a href="https://www.turners.co.nz/Cars/Used-Cars-for-Sale/?sortorder=7&pagesize=24&pageno=1">Find A Car <img src="https://img.icons8.com/cotton/64/000000/detective.png" width="20"/></a>
+        <a href="https://www.turners.co.nz/Cars/sell-your-car/">Sell Your Car <img src="https://img.icons8.com/ios/24/000000/down-squared--v1.png"/></a>
+        <a href="http://localhost:8000/upload">Upload & Match <img src="https://img.icons8.com/dusk/64/000000/camera-identification.png" width="25"/></a>
+      </div>  
     </nav>
+    
   </header>
 
-  <div class="white-box">
+  <div class="upload-section">
 
       <!-- Upload form. Note enctype attribute! -->
 
-      <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data">
+      <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data" target="_blank">
         {% csrf_token %}
         {{ message }}
         <p>{{ form.non_field_errors }}</p>
@@ -45,10 +50,32 @@
 
         <div class="buttons">
           <p><input class="submit" type="submit" value="Search Turners Listings" /></p>
-          <p><input class="lucky" type="submit" value="I'm Feeling Lucky" /></p>
+          <p><a class="lucky" href="#" onclick="randomSite();">I'm Feeling Lucky</a></p>
         </div>
+        
+        
       </form>
+      
+      
     </div>
+    <script>
+      var sites = [
+          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/nissan/leaf/19363606',
+          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/holden/commodore/21036934',
+          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/toyota/estima/20275918',
+          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/bmw/1-series/20310683',
+          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/cadillac/cts/21069158',
+          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/ford/ranger/21087004'
+      ];
+  
+      function randomSite() {
+          var i = parseInt(Math.random() * sites.length);
+          location.href = sites[i];
+      }
+  </script>
+  
+   
+  
  
   
 
