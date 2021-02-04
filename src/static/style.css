@@ -7,6 +7,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height: 100vh;
 }
 
 header {
@@ -38,7 +39,7 @@ header {
 }
 
 .upload-section {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.90);
   color: black;
   width: 40%;
   height: 50rem;
@@ -47,18 +48,21 @@ header {
   border-radius: 0.5rem;
   border: gray 2px solid;
   margin: 18rem auto;
+  /* padding: 40rem !important ; */
   font-family: 'Lato', sans-serif;
 }
 
 .photo-box {
   background-color: white;
-  border: gray 5px solid;
+  /* border: gray 3px solid;
+  border-radius: 0.3rem; */
   justify-content: center;
   display: flex;
-  width: 384px;
-  height: 216px;  
+  width: 400px;
+  height: 250px;  
   object-fit: contain;
 }
+
 .fit {
   width: auto;
   height: auto;
@@ -68,6 +72,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 
 form {
@@ -92,29 +97,51 @@ form {
   padding-left: 11rem;
 }
 
-.submit, .lucky {
+.search, .lucky, .back {
   padding: 2rem;
   background-color: rgb(44, 38, 38);
   color: white;
   border-radius: 0.5rem;
+  margin-top: 2rem;
+  text-decoration: none !important;
+}
+
+.error {
+  margin: 0 10rem;
+}
+
+.submit {
+  padding: 2rem;
+  background-color: rgb(44, 38, 38);
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none !important;
 }
 
 .lucky {
   margin-left: 2rem;
-  padding: 2.4rem;
-  
 }
 
 input[type=submit]:hover{
   text-decoration:underline;
 }
 
-.submit:hover {
+.search:hover {
   background-color: rgb(78, 72, 72);
   color: white;
 }
 
 .lucky:hover {
+  background-color: rgb(78, 72, 72);
+  color: white;
+}
+
+.back:hover {
+  background-color: rgb(78, 72, 72);
+  color: white;
+}
+
+.submit:hover {
   background-color: rgb(78, 72, 72);
   color: white;
 }
@@ -135,28 +162,45 @@ h1 {
   font-size: 2rem;
   padding: 3rem;
   background-color:rgba(1, 113, 185, 0.75);
-  width: 75%;
+  width: 70%;
   border-radius: 0.5rem;
   border: 2px solid gray;
   margin: 10rem auto; 
+  font-family: 'Lato', sans-serif;
 }
 
 .cta-section h3 {
-  font-size: 4rem;
+  font-size: 4.7rem;
+  font-weight: 700;
   color: white;
 }
 
+.cta-section p {
+  padding: 3rem 0;
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  line-height: 1.4;
+}
+
 .cta {
-  background-color: #CB0A39;
+  background-color: #B71334;
   border-radius: 0.5rem;
   color: white;
   box-shadow: none;
   border: 2px solid #7e0926;
-  padding: 1rem 3rem;
+  padding: 1.5rem 4rem;
 }
 
 .cta:hover {
   background-color: #c43d5f;
+}
+
+.cta-section span {
+  color:rgb(40, 209, 18);
+}
+
+.vehicle-results {
+  font-size: 2.3rem;
 }
 
 .fade-in {
