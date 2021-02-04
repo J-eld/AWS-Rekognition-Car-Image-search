@@ -130,3 +130,7 @@ def lucky_view(request):
 
     elif analyse_view.TypeOfCar == 'Van':
         return redirect(vans[randint(0, len(vans) - 1)])
+
+
+    def error_view(requests):
+        return render(request, 'error.html', {})
