@@ -44,6 +44,8 @@
 
         <p class="photo-box"><img class="fit" src="{{ image }}"></p>
 
+        <div>
+
         {% if TypeOfCar == 'Suv' %}
           <p>Your car is an {{ TypeOfCar }}</p>
         {% elif TypeOfCar == False %}
@@ -52,12 +54,13 @@
           <p>Your car is a {{ TypeOfCar }}</p>
         {% endif %}
 
-
-        <div class="buttons">
-          <p><a class="lucky" href="{% url "turners-view" %}">Search Turners Listings</a></p>
-          <p><a class="lucky" href="#" onclick="randomSite();">I'm Feeling Lucky</a></p>
         </div>
 
+        <div class="buttons">
+          <p><a class="lucky" href="{% url "turners-view" %}" target="_blank">Search Turners Listings</a></p>
+          <p><a class="lucky" href="{% url "lucky-view" %}" target="_blank">I'm Feeling Lucky</a></p>
+        </div>
+      
         <a class="lucky" href="{% url "analyse-view" %}">Back</a>
         
         
@@ -66,26 +69,6 @@
       
       
     </div>
-    <script>
-      var sites = [
-          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/nissan/leaf/19363606',
-          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/holden/commodore/21036934',
-          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/toyota/estima/20275918',
-          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/bmw/1-series/20310683',
-          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/cadillac/cts/21069158',
-          'https://www.turners.co.nz/Cars/Used-Cars-for-Sale/ford/ranger/21087004'
-      ];
-  
-      function randomSite() {
-          var i = parseInt(Math.random() * sites.length);
-          location.href = sites[i];
-      }
-  </script>
-  
-   
-  
- 
-  
 
   <script>
     window.watsonAssistantChatOptions = {

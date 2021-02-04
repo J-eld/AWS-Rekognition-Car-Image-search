@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from webpage.views import home_view, analyse_view, turners_view
+from webpage.views import home_view, analyse_view, turners_view, lucky_view
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
@@ -26,6 +26,7 @@ urlpatterns = [
     path('upload', include('webpage.urls')),
     path('analyse', analyse_view, name='analyse-view'),
     path('turners', turners_view, name='turners-view'),
+    path('lucky', lucky_view, name='lucky-view'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

@@ -111,6 +111,7 @@ input[type=submit]:hover{
 
 .submit:hover {
   background-color: rgb(78, 72, 72);
+  color: white;
 }
 
 .lucky:hover {
