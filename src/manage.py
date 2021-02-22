@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Mission2.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AWS-Rekognition-Car-Image-Search.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

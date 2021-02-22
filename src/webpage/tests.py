@@ -1,6 +1,6 @@
 from django.test import TestCase
 import unittest
-from Rekog import Rekog
+from .Rekog import Rekog
 
 
 # Create your tests here.
