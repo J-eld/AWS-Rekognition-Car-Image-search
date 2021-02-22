@@ -23,6 +23,9 @@ class TestAWSRekognition(unittest.TestCase):
 
     def test_truck(self):
         self.assertTrue(Rekog('photos/truck.jpg'), 'truck')
+        
+    def test_Not_a_Car(self):
+        self.assertFalse(Rekog('photos/NoCar.jpg'), 'False')
 
 if __name__ == '__main__':
     unittest.main()
