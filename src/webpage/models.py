@@ -2,4 +2,4 @@ from django.db import models
 
 # Create your models here.
 class Document(models.Model):
-    docfile = models.FileField(upload_to='Mission2/documents/')
+    docfile = models.FileField(upload_to='AWS-Rekognition-Car-Image-Search/documents/')
